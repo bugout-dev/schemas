@@ -1,0 +1,64 @@
+{
+    "$id": "https://example.com/arrays.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Journal statistics",
+    "type": "object",
+    "properties": {
+        "schema": {
+            "type": "string",
+            "description": "link to that schema"
+        },
+        "data":{
+            "type": "object",
+            "description": "All statistics data",
+            "properties": {
+                "entries": {
+                    "description": "Array of date count object",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "description": "Count by date",
+                        "properties": {
+                            "date":{
+                                "description": "Date of entry count",
+                                "type": "string"
+                            },
+                            "count": {
+                                "description": "Count of enty in that date",
+                                "type": "integer",
+                                "exclusiveMinimum": 0
+                            }
+                            
+                        }
+                    }
+                },
+                "tags": {
+                    "description": "Timerange but tag name",
+                    "type": "object",
+                    "patternProperties": {
+                        "^.*$": {
+                            "description": "Array of date count object",
+                            "type": "array",
+                            "items": {
+                                "description": "Count by date",
+                                "type": "object",
+                                "properties": {
+                                    "date":{
+                                        "description": "Date of tags count",
+                                        "type": "string"
+                                    },
+                                    "count": {
+                                        "description": "Count of tags in that date",
+                                        "type": "integer",
+                                        "exclusiveMinimum": 0
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
