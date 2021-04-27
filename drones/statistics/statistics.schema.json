@@ -1,0 +1,52 @@
+{
+    "$id": "https://example.com/arrays.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Journal statistics",
+    "type": "object",
+    "definitions": {
+        "count_by_date": {
+            "type": "object",
+            "description": "Count by date",
+            "properties": {
+                "date":{
+                    "description": "Date",
+                    "type": "string"
+                },
+                "count": {
+                    "description": "Count in that date",
+                    "type": "integer",
+                    "exclusiveMinimum": 0
+                }
+                
+            }
+        }
+    },
+    "properties": {
+        "schema": {
+            "type": "string",
+            "description": "link to that schema"
+        },
+        "data":{
+            "type": "object",
+            "description": "All statistics data",
+            "properties": {
+                "entries": {
+                    "description": "Array of date count object",
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/count_by_date"}
+                },
+                "tags": {
+                    "description": "Timerange but tag name",
+                    "type": "object",
+                    "properties": {
+                        "additionalProperties": {
+                            "description": "Array of date count object",
+                            "type": "array",
+                            "items": {"$ref": "#/definitions/count_by_date"}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
