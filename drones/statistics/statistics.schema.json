@@ -58,19 +58,19 @@
                     "description": "Object which containe predefined time intervals with their most common tags",
                     "type": "object",
                     "properties": {
-                        "year": {
+                        "total": {
                             "type": "array",
                             "items": {"$ref": "#/definitions/common_tags_count"}
                         },
-                        "month": {
+                        "last_28_days": {
                             "type": "array",
                             "items": {"$ref": "#/definitions/common_tags_count"}
                         },
-                        "week": {
+                        "last_7_days": {
                             "type": "array",
                             "items": {"$ref": "#/definitions/common_tags_count"}
                         },
-                        "day": {
+                        "last_24_hours": {
                             "type": "array",
                             "items": {"$ref": "#/definitions/common_tags_count"}
                         }
