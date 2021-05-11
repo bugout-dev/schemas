@@ -2,6 +2,32 @@
     "created_at": "2021-05-11 11:28:09.570696",
     "schema": "https://github.com/bugout-dev/schemas/blob/main/drones/statistics/stats_v2.schema.json",
     "data": {
+        "entries": [
+            {
+                "date": "2021-05-11",
+                "count": 12
+            },
+            {
+                "date": "2021-05-10",
+                "count": 6
+            },
+            {
+                "date": "2021-05-05",
+                "count": 61
+            },
+            {
+                "date": "2021-05-04",
+                "count": 17
+            },
+            {
+                "date": "2021-04-05",
+                "count": 3
+            },
+            {
+                "date": "2021-04-02",
+                "count": 3
+            }
+        ],
         "most_common_tags": {
             "total": {
                 "humbug": 90,
