@@ -1,7 +1,7 @@
 {
     "$id": "https://example.com/arrays.schema.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "description": "Journal statistics",
+    "description": "Journal errors statistics",
     "type": "object",
     "definitions": {
         "count_by_time_point": {
@@ -23,6 +23,8 @@
                     "optional": true
 
                 }
+                
+                
             }
         },
         "common_tags_count": {
@@ -39,7 +41,7 @@
     "properties": {
         "created_at": {
             "type": "string",
-            "description": "Statistics created at"
+            "description": "Errors statistics created at"
         },
         "schema": {
             "type": "string",
@@ -47,53 +49,63 @@
         },
         "data": {
             "type": "object",
-            "description": "Statistics of journal entry tags",
+            "description": "statistics of journal entry tags",
             "properties": {
-                "entries": {
-                    "description": "Array of date count object",
-                    "type": "array",
-                    "items": {"$ref": "#/definitions/count_by_time_point"}
-                },
-                "most_common_tags": {
+                "most_common_errors": {
                     "description": "Object which containe predefined time intervals with their most common tags",
                     "type": "object",
                     "properties": {
-                        "total": {
+                        "year": {
                             "type": "array",
                             "items": {"$ref": "#/definitions/common_tags_count"}
                         },
-                        "last_28_days": {
+                        "month": {
                             "type": "array",
                             "items": {"$ref": "#/definitions/common_tags_count"}
                         },
-                        "last_7_days": {
+                        "week": {
                             "type": "array",
                             "items": {"$ref": "#/definitions/common_tags_count"}
                         },
-                        "last_24_hours": {
+                        "day": {
                             "type": "array",
                             "items": {"$ref": "#/definitions/common_tags_count"}
                         }
                     }
                 },
-                "tags": {
+                "errors_time_series": {
                     "description": "Timerange by tag name",
                     "type": "object",
                     "properties": {
                         "year": {
-                            "description": "Counts by given time interval with time points",
-                            "type": "array",
-                            "items": {"$ref": "#/definitions/count_by_time_point"}
+                            "description": "Tag with there timeseries",
+                            "type": "object",
+                            "additionalProperties": {
+                                "description": "Counts by given time interval with time points",
+                                "type": "array",
+                                "optional": true,
+                                "items": {"$ref": "#/definitions/count_by_time_point"}
+                            }
                         },
                         "month": {
-                            "description": "Counts by given time interval with time points",
-                            "type": "array",
-                            "items": {"$ref": "#/definitions/count_by_time_point"}
+                            "description": "Tag with there timeseries",
+                            "type": "object",
+                            "additionalProperties": {
+                                "description": "Counts by given time interval with time points",
+                                "type": "array",
+                                "optional": true,
+                                "items": {"$ref": "#/definitions/count_by_time_point"}
+                            }
                         },
                         "day": {
-                            "description": "Counts by given time interval with time points",
-                            "type": "array",
-                            "items": {"$ref": "#/definitions/count_by_time_point"}
+                            "description": "Tag with there timeseries",
+                            "type": "object",
+                            "additionalProperties": {
+                                "description": "Counts by given time interval with time points",
+                                "type": "array",
+                                "optional": true,
+                                "items": {"$ref": "#/definitions/count_by_time_point"}
+                            }
                         }
 
                     }
