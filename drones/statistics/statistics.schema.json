@@ -51,6 +51,11 @@
             "type": "object",
             "description": "Statistics of journal entry tags",
             "properties": {
+                "entries": {
+                    "description": "Array of date count object",
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/count_by_time_point"}
+                },
                 "most_common_tags": {
                     "description": "Object which containe predefined time intervals with their most common tags",
                     "type": "object",
